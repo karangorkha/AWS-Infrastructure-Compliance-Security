@@ -7,16 +7,33 @@ pipeline {
        AWS_REGION = 'ap-south-1'        
       
     }
-  stages {
-        stage('aws security check begin') {
+     stages {
+        stage('Set AWS Region') {
             steps {
                 script {
+                    sh """
+                        # Set the AWS region
+                        aws configure set access-key ${AWS_ACCESS_KEY_ID}
+                         aws configure set access-key ${AWS_SECRET_ACCESS_KEY}
+                        aws configure set region ${AWS_REGION}
+                    """
+                }
+            }
+        }
+
+        stage('Fetch and Post AWS Security Hub Findings') {
+            steps {
+                script {
+                    sh "./script.sh"
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
                     
-                    
-                    
-                    sh ./script.sh
-}
-}
-}
-}
-}
