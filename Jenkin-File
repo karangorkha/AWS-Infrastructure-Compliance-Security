@@ -5,7 +5,7 @@ pipeline {
         AWS_ACCESS_KEY_ID = credentials('AKIAYWINGUPGXKUYAC44')
         AWS_SECRET_ACCESS_KEY = credentials('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')
        AWS_REGION = 'ap-south-1'        
-       DEFECTDOJO_API_KEY = credentials('3c31641e22f207db148302f8317730c3f270c576')
+      
     }
   stages {
         stage('aws security check begin') {
